@@ -2,25 +2,30 @@ pipeline {
     agent {
         docker {
             image 'cypress/included:latest'
-            args '-u root --entrypoint=""'
+            args '-u=root --entrypoint='
         }
     }
-    stages {
-        stage('Check Node') {
-            steps {
-                sh 'node -v'
-                sh 'npm -v'
-            }
-        }
-        stage('Install dependencies') {
-            steps {
+    stages{
+        stage('install cypress'){
+            steps{
                 sh 'npm ci'
             }
         }
-        stage('Run Cypress tests') {
-            steps {
+        stage('run tests'){
+            steps{
                 sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
             }
+        }
+        // stage('get junit report'){
+        //     steps{
+        //         junit 'results/*.xml'
+        //     }
+        // }
+    }
+    post{
+        always{
+            archiveArtifacts artifacts: 'results/*.*', fingerprint: true
+            junit 'results/*.xml'
         }
     }
 }
