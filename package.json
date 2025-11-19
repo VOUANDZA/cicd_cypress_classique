@@ -3,7 +3,7 @@
     "@cypress/grep": "^5.0.0",
     "allure-commandline": "^2.34.1",
     "allure-cypress": "^3.4.2",
-    "cypress": "^15.5.0",
+    "cypress": "^15.6.0",
     "cypress-mochawesome-reporter": "^4.0.2"
   },
   "dependencies": {
