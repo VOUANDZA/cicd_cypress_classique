@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="11.291" tests="5" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-11-19T09:41:53" tests="0" file="cypress\e2e\login.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="fonctionnalité d&apos;authentification" timestamp="2025-11-19T09:41:53" tests="5" time="11.288" failures="0">
+    <testcase name="fonctionnalité d&apos;authentification login with valid credentials" time="3.022" classname="login with valid credentials">
+    </testcase>
+    <testcase name="fonctionnalité d&apos;authentification login with invalid credentials" time="1.041" classname="login with invalid credentials">
+    </testcase>
+    <testcase name="fonctionnalité d&apos;authentification login fixture credentials" time="2.765" classname="login fixture credentials">
+    </testcase>
+    <testcase name="fonctionnalité d&apos;authentification login with simple fixture" time="1.185" classname="login with simple fixture">
+    </testcase>
+    <testcase name="fonctionnalité d&apos;authentification test basique sur l&apos;application" time="0.361" classname="test basique sur l&apos;application">
+    </testcase>
+  </testsuite>
+</testsuites>

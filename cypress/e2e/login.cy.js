@@ -8,7 +8,7 @@ describe("fonctionnalité d'authentification", ()=>{
 
     it("login with valid credentials", {tags: '@regression'},()=>{
         cy.log("**************************")
-        cy.get("#user-name").type("standard_user")
+        cy.get("#user-name").type("standard_user1")
         cy.get("#password").type("secret_sauce")
         cy.get("#login-button").click()
         cy.get("span.title").should("be.visible")
