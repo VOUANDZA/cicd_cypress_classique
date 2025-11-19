@@ -1,21 +1,26 @@
 pipeline {
-  agent { label 'docker' } // label d'un node qui a Docker
-  stages {
-    stage('Run in container') {
-      steps {
-        script {
-          docker.image('cypress/included:latest').inside('-u root') {
-            sh 'npm ci'
-            sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
-          }
+    agent {
+        docker {
+            image 'cypress/included:latest'
+            args '-u root --entrypoint=""'
         }
-      }
     }
-  }
-  post {
-    always {
-      archiveArtifacts artifacts: 'results/*.*', fingerprint: true
-      junit 'results/*.xml'
+    stages {
+        stage('Check Node') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage('Run Cypress tests') {
+            steps {
+                sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
+            }
+        }
     }
-  }
 }
