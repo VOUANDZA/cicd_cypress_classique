@@ -1,0 +1,1 @@
+npx cypress run --spec "cypress/e2e/batchs/login.cy.js"
